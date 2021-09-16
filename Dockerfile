@@ -7,7 +7,7 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
-RUN python -m pip install --upgrade pip
+#RUN python -m pip install --upgrade pip
 RUN python3 --version
 RUN pip3 install -r requirements.txt
 
