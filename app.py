@@ -25,6 +25,6 @@ def index():
 
 #    df = pd.DataFrame(data_dic, columns=columns, index=index)
     df = pd.DataFrame.from_dict(json.loads(data_dic))
-    table = df.to_html(index=False)
+    table = df.to_html(index=index)
 
     return render_template('index.html',host=host,table=table)
