@@ -23,7 +23,8 @@ def index():
     columns = ['id', 'color']
     index = ['a', 'b', 'c']
 
-    df = pd.DataFrame(data_dic, columns=columns, index=index)
+#    df = pd.DataFrame(data_dic, columns=columns, index=index)
+    df = pd.DataFrame.from_dict(data_dic)
     table = df.to_html(index=False)
 
     return render_template('index.html',host=host,table=table)
