@@ -14,9 +14,12 @@ app = Flask(__name__)
 def index():
 
 
-    data_dic = {
-        'id': [100, 101, 102],
-        'color': ['red', 'blue', 'red']}
+#    data_dic = {
+#        'id': [100, 101, 102],
+#        'color': ['red', 'blue', 'red']}
+
+    data_dic = json.dumps({**{}, **os.environ}, indent=2)
+
     columns = ['id', 'color']
     index = ['a', 'b', 'c']
 
