@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from urllib.parse import urlparse
 o = urlparse(request.base_url)
 host = o.hostname
