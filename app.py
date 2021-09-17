@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
-from urllib.parse import urlparse
-o = urlparse(request.base_url)
-host = o.hostname
+import os
+import sys
 
+host = os.environ.get('HOSTNAME', 'localhost')
 
 app = Flask(__name__)
 
