@@ -20,11 +20,11 @@ def index():
 
     data_dic = json.dumps({**{}, **os.environ}, indent=2)
 
-    columns = ['id', 'color']
+    columns = ['key', 'vlue']
     index = ['a', 'b', 'c']
 
 #    df = pd.DataFrame(data_dic, columns=columns, index=index)
-    df = pd.DataFrame.from_dict(json.loads(data_dic),index=index)
+    df = pd.DataFrame.from_dict(data_dic,columns=columns, index=index)
     table = df.to_html(index=False)
 
     return render_template('index.html',host=host,table=table)
