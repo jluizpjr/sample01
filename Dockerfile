@@ -1,8 +1,10 @@
 # syntax=docker/dockerfile:1
 
 
-FROM python:3.8-slim-buster
+#FROM python:3.8-slim-buster
 #FROM python:3.8.10-buster
+
+FROM registry.suse.com/suse/sle15:latest
 
 WORKDIR /app
 
