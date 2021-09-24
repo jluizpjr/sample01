@@ -10,6 +10,13 @@ env=json.dumps({**{}, **os.environ}, indent=2)
 
 app = Flask(__name__)
 
+@app.route('/details')
+def index():
+
+    print(env)
+    table=json2html.convert(json = env)
+    return render_template('index.html',host=host,table=table)
+
 @app.route('/')
 def index():
 
