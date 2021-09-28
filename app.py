@@ -5,8 +5,9 @@ import sys
 import json
 
 host = os.environ.get('HOSTNAME', 'localhost')
-env=json.dumps({**{}, **os.environ}, indent=2)
 
+#env=json.dumps({**{}, **os.environ}, indent=2)
+env=json.dumps({**{}, **os.environ}, indent=2)
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ app = Flask(__name__)
 def details():
 
     print(env)
+    
     table=json2html.convert(json = env)
     return render_template('index.html',host=host,table=table)
 
@@ -21,5 +23,5 @@ def details():
 def index():
 
     print(env)
-    table=json2html.convert(json = env)
+    table=json2html.convert(json = env, template=template)
     return render_template('index.html',host=host,table=table)
