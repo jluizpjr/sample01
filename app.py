@@ -25,3 +25,11 @@ def index():
     print(env)
     table=json2html.convert(json = env, template=template)
     return render_template('index.html',host=host,table=table)
+
+    @app.route('/help')
+def help():
+
+    print(env)
+    
+    table=json2html.convert(json = env)
+    return render_template('help.html',host=host,table=table)

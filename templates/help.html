@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="icon" type="image/png" href="https://www.suse.com/favicon.ico">
+    <link rel="stylesheet" href="https://www.suse.com/min/?b=assets/css&f=bootstrap.css,featherlight.min.css,featherlight.gallery.min.css,jquery-ui.min.css,helpers.css,lightslider.css,main.css,iefix.css">
+    <link rel="stylesheet" href="https://www.suse.com/assets/css/font-awesome.css"> 
+    <script type="text/javascript" src="https://www.suse.com/min/?b=assets/js&f=jquery-2.1.3.min.js,dummyfile.js"></script>
+    <title>SUSE Rancher</title>
+</head>
+<body>
+   <hr>
+   <h1>Welcome to Rancher</h1>
+   <h2>Hostname={{ host }} </h2> 
+
+
+	   <div>
+<!-- 	   	
+    <thead><tr><th>Name</th><th>Description</th></tr></thead>	
+-->
+    {{ table | safe }}
+</div>
+</body>
+</html>
+
