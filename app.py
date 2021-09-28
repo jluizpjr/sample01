@@ -10,6 +10,8 @@ host = os.environ.get('HOSTNAME', 'localhost')
 #env=json.dumps({**{}, **os.environ}, indent=2)
 env=json.dumps({**{}, **os.environ}, indent=2)
 
+config.load_kube_config()
+
 app = Flask(__name__)
 
 @app.route('/details')
