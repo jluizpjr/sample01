@@ -33,5 +33,5 @@ def help():
     return render_template('help.html',host=host,table=kb())
 
 def kb():
-    ret = ["a","b","c"]
+    ret = ['a','b','c']
     return ret
