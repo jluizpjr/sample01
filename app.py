@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from json2html import *
+from kubernetes import client, config
 import os
 import sys
 import json
@@ -28,5 +29,14 @@ def index():
 
 @app.route('/help')
 def help():  
+    kb()
     table=json2html.convert(json = env)
     return render_template('help.html',host=host,table=table)
+
+def kb():
+    v1=client.CoreV1Api()
+    print("Listing pods with their IPs:")
+    ret = v1.list_pod_for_all_namespaces(watch=False)
+    for i in ret.items:
+        print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
+    return 0
