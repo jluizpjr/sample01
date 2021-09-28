@@ -29,9 +29,8 @@ def index():
 
 @app.route('/help')
 def help():  
-    kb()
     table=json2html.convert(json = env)
-    return render_template('help.html',host=host,table=table)
+    return render_template('help.html',host=host,table=kb())
 
 def kb():
     v1=client.CoreV1Api()
@@ -39,4 +38,4 @@ def kb():
     ret = v1.list_pod_for_all_namespaces(watch=False)
     for i in ret.items:
         print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
-    return 0
+    return ret
